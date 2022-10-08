@@ -1,0 +1,18 @@
+{
+  "name": "lottery-game-on-chain",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ hafikraimy/lottery-game-on-chain",
+    "create-local": "graph create --node http://localhost:8020/ hafikraimy/lottery-game-on-chain",
+    "remove-local": "graph remove --node http://localhost:8020/ hafikraimy/lottery-game-on-chain",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 hafikraimy/lottery-game-on-chain",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.33.0",
+    "@graphprotocol/graph-ts": "0.27.0"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
+}
