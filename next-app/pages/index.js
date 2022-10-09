@@ -101,7 +101,6 @@ export default function Home() {
       let _logs = []
 
       if(_gameStarted) {
-
         _logs = [`Game has started with ID: ${_game.id}`]
         if(_game.players && _game.players.length > 0) {
           _logs.push(
@@ -113,7 +112,7 @@ export default function Home() {
         }
         setEntryFee(BigNumber.from(_game.entryFee))
         setMaxPlayers(BigNumber.from(_game.maxPlayers))
-      } else if (!gameStarted && _game.winner) {
+      } else if (!_gameStarted && _game.winner) {
         _logs = [
           `Last game has ended with ID: ${_game.id}`,
           `Winner is: ${_game.winner}`,
@@ -124,7 +123,6 @@ export default function Home() {
       setLogs(_logs)
       setPlayers(_game.players)
       setGameStarted(_gameStarted)
-      console.log('game started 3:', _gameStarted)
       forceUpdate()
     } catch (error) {
       console.error(error)
@@ -206,7 +204,7 @@ export default function Home() {
         </div>
       );
     }
-
+    
     if(isOwner && !gameStarted) {
       return (
         <div>

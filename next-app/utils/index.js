@@ -12,7 +12,6 @@ export async function subGraphQuery(query) {
             console.error(response.data.errors)
             throw new Error(`Error making subgraph query ${response.data.errors}`)
         }
-        console.log(response.data.data)
         return response.data.data;
     } catch (error) {
         console.error(error)
