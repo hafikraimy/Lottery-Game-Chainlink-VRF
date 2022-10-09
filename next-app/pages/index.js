@@ -95,15 +95,12 @@ export default function Home() {
       )
 
       const _gameStarted = await lotteryGameContract.gameStarted()
-      console.log('game started 1:', _gameStarted)
 
       const _gameArray = await subGraphQuery(FETCH_CREATED_GAMES())
       const _game = _gameArray.games[0]
       let _logs = []
 
       if(_gameStarted) {
-        console.log('inside')
-        console.log('game started 2:', _gameStarted)
 
         _logs = [`Game has started with ID: ${_game.id}`]
         if(_game.players && _game.players.length > 0) {
@@ -241,14 +238,6 @@ export default function Home() {
     }
   }
 
-  const testing = () => {
-    return (
-      <div>
-        logged in as: {gameStarted ? 'game has start' : 'game not yet start'}
-      </div>
-    )
-  }
-
   return (
     <div>
       <Head>
@@ -262,7 +251,6 @@ export default function Home() {
           <div className={styles.description}>
             Its a lottery game where a winner is chosen at random and wins the entire lottery pool
           </div>
-          {testing()}
           {renderButton()}
           {logs &&
             logs?.map((log, index) => (
