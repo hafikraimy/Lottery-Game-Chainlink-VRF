@@ -76,11 +76,8 @@ export default function Home() {
       const _owner = await lotteryGameContract.owner()
       const signer = await getProviderOrSigner(true)
       const address = await signer.getAddress()
-      console.log('address: ', address)
-      console.log('_owner: ', _owner)
       
       if(address.toLowerCase() === _owner.toLowerCase()) {
-        console.log('come in')
         setIsOwner(true)
       }
     } catch (error) {
@@ -98,12 +95,16 @@ export default function Home() {
       )
 
       const _gameStarted = await lotteryGameContract.gameStarted()
+      console.log('game started 1:', _gameStarted)
 
       const _gameArray = await subGraphQuery(FETCH_CREATED_GAMES())
       const _game = _gameArray.games[0]
       let _logs = []
 
       if(_gameStarted) {
+        console.log('inside')
+        console.log('game started 2:', _gameStarted)
+
         _logs = [`Game has started with ID: ${_game.id}`]
         if(_game.players && _game.players.length > 0) {
           _logs.push(
@@ -126,6 +127,7 @@ export default function Home() {
       setLogs(_logs)
       setPlayers(_game.players)
       setGameStarted(_gameStarted)
+      console.log('game started 3:', _gameStarted)
       forceUpdate()
     } catch (error) {
       console.error(error)
@@ -242,7 +244,7 @@ export default function Home() {
   const testing = () => {
     return (
       <div>
-        logged in as: {isOwner ? 'owner' : 'not owner'}
+        logged in as: {gameStarted ? 'game has start' : 'game not yet start'}
       </div>
     )
   }
