@@ -1,6 +1,4 @@
-export const LOTTERY_GAME_CONTRACT_ADDRESS ="0xdfc751B6f6d86f99159610a0f6C3DbC73033F460" 
-
-export const abi = [
+[
     {
       "inputs": [
         {
@@ -284,4 +282,3 @@ export const abi = [
       "type": "receive"
     }
 ]
-
