@@ -171,7 +171,7 @@ export default function Home() {
       checkIfGameStarted()
       setInterval(() => {
         checkIfGameStarted()
-      }, 2000);
+      }, 2000)
     }
   }, [walletConnected])
 
@@ -181,7 +181,7 @@ export default function Home() {
         <button onClick={connectWallet} className={styles.button}>
           Connect your wallet
         </button>
-      );
+      )
     }
 
     if (loading) {
@@ -194,7 +194,7 @@ export default function Home() {
           <button className={styles.button} disabled>
             Choosing winner...
           </button>
-        );
+        )
       }
       return (
         <div>
@@ -202,7 +202,7 @@ export default function Home() {
             Join Game 🚀
           </button>
         </div>
-      );
+      )
     }
     
     if(isOwner && !gameStarted) {
@@ -258,7 +258,7 @@ export default function Home() {
             ))}
         </div>
         <div>
-          <img className={styles.image} src="./randomWinner.png" />
+          <img className={styles.image} src="./randomWinner.png" alt="lottery game" />
         </div>
       </div>
       <footer className={styles.footer}>Made with &#10084; by hafikraimy</footer>
