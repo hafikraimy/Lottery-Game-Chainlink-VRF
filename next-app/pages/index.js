@@ -3,8 +3,8 @@ import styles from '../styles/Home.module.css'
 import React, { useState, useEffect, useRef } from 'react'
 import Web3Modal from 'web3modal'
 import { abi, LOTTERY_GAME_CONTRACT_ADDRESS } from '../constants'
-import { FETCH_CREATED_GAMES } from '../queries'
-import { subGraphQuery } from '../utils'
+import { FETCH_CREATED_GAMES } from '../queries/queries'
+import { subGraphQuery } from '../utils/subGraphQuery'
 import { BigNumber, Contract, ethers, providers, utils } from 'ethers'
 
 export default function Home() {
